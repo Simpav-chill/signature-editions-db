@@ -68,7 +68,10 @@ JOIN recipient
 ON recipient.id = subscription.recipient_id
 GROUP BY GROUPING SETS ((settlement), (street), ());
 
-
+SELECT first_name, last_name, term, AVG(term) OVER (PARTITION BY last_name) 
+FROM subscription 
+JOIN recipient
+ON recipient.id = subscription.recipient_id;
 
 -- 1 запрос с использованием оператора HAVING
 
