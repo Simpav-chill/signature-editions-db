@@ -1,0 +1,23 @@
+name: signature-editions
+
+services:
+  db:
+    image: postgres:17
+    container_name: signature-editions
+    restart: unless-stopped
+
+    ports:
+      - '5432:5432'
+    
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=12345678
+      - POSTGRES_DB=signature_editions
+
+    volumes:
+      - ./pg-data/:/var/lib/postgresql/data/
+      - ./init/init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./init/insert-data.sql:/docker-entrypoint-initdb.d/02-insert-data.sql
+
+volumes:
+  pg-data:
