@@ -74,15 +74,33 @@ JOIN recipient
 ON recipient.id = subscription.recipient_id;
 
 -- 1 запрос с использованием оператора HAVING
-
+SELECT recipient_id, COUNT(*) subscriptions_count
+FROM subscription
+GROUP BY recipient_id
+HAVING recipient_id < 4;
 
 -- 1 запрос с комбинацией Inner Join и Outer Join
-
+SELECT first_name, last_name, name, term
+FROM subscription
+INNER JOIN edition
+ON edition.id = subscription.edition_id
+FULL OUTER JOIN recipient
+ON recipient.id = subscription.recipient_id;
 
 -- 1 запрос с использованием оператора UNION
-
+SELECT id
+FROM edition
+UNION SELECT id
+FROM subscription;
 
 -- 1 запрос с использованием оператора EXCEPT
-
+SELECT recipient.id
+FROM recipient
+EXCEPT SELECT recipient_id
+FROM subscription;
 
 -- 1 запрос с использованием оператора INTERSECT
+SELECT recipient.id
+FROM recipient
+INTERSECT SELECT recipient_id
+FROM subscription;

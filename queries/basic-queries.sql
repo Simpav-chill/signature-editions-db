@@ -4,7 +4,7 @@ SELECT DISTINCT type FROM edition;
 -- 2 запроса с использованием операторов LIMIT и PERCENT;
 SELECT * FROM recipient LIMIT 2;
 
-
+SELECT * FROM edition LIMIT 1;
 
 -- 1 запрос с использованием FETCH FIRST или FETCH NEXT;
 SELECT * FROM subscription
