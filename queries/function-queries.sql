@@ -11,7 +11,7 @@ FROM edition;
 SELECT REPLACE(first_name, first_name, 'Вася'), REPLACE(last_name, last_name, 'Пупкин')
 FROM recipient;
 
--- 2 запроса с использованием ЧисловыХ функциЙ;
+-- 2 запроса с использованием числовых функций;
 SELECT name, RANDOM() as random_number
 FROM edition;
 
@@ -20,12 +20,12 @@ FROM subscription
 JOIN recipient
 On recipient.id = subscription.recipient_id;
 
--- 2 запроса с использованием функций с ДАТАМИ;
+-- 2 запроса с использованием функций с датами;
 SELECT name, NOW() from edition;
 
 SELECT extract(month from CURRENT_DATE), NOW();
 
--- 2 запроса с использованием Функции CASE и IIF
+-- 2 запроса с использованием функций CASE и IIF
 SELECT first_name, last_name, 
     CASE term
         WHEN 6 THEN 'middle'
