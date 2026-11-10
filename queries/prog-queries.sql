@@ -71,7 +71,7 @@ DO $$
 DECLARE
     var INT := 0;
 BEGIN
-    WHILE var < 40 LOOP
+    WHILE var < 20 LOOP
         RAISE NOTICE 'Now, var is %', var;
 
         var := var + 1;
